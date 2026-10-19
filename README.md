@@ -1,3 +1,26 @@
+<!-- ffxiv-tc-port 繁體中文說明開始 -->
+# Hexa.NET.ImGui(台服 fork)
+
+Dear ImGui 的 .NET 綁定與其產生器（上游 [goatcorp/Hexa.NET.ImGui](https://github.com/goatcorp/Hexa.NET.ImGui) 的 `dalamud` 分支，再往上是 [HexaEngine/Hexa.NET.ImGui](https://github.com/HexaEngine/Hexa.NET.ImGui)）。Dalamud 本體只用它的產生器：手動執行 `generate_imgui_bindings.ps1` 時，用它重新產生 `Dalamud.Bindings.ImGui`／`ImPlot`／`ImGuizmo` 的 C# 綁定；平常建置不會編譯這個 repo。
+
+## 台服 fork 的目的
+
+- 讓 Dalamud 本體的子模組網址指向本 org，建置不依賴上游 repo 是否還在、有沒有被改寫。
+
+## 與上游的差異
+
+- 移除上游的 `push-nuget.yml` 工作流程（推送版本 tag 時會發佈套件到 nuget.org），保留兩個只能手動觸發的建置流程。原始碼與上游相同。
+- Dalamud 本體釘的是上游原本的版本，不含上面那顆移除 CI 的 commit。
+
+## 誰在用它
+
+- [Dalamud](https://github.com/ffxiv-tc-port/Dalamud)：子模組 `lib/Hexa.NET.ImGui`（只在重新產生綁定時用到）。
+
+---
+
+以下為上游原始 README，內容未經修改：
+
+<!-- ffxiv-tc-port 繁體中文說明結束 -->
 [![Build ImGui and Addons Libraries](https://github.com/HexaEngine/Hexa.NET.ImGui/actions/workflows/cmake.yml/badge.svg)](https://github.com/HexaEngine/Hexa.NET.ImGui/actions/workflows/cmake.yml)
 [![Build ImGui Backends](https://github.com/HexaEngine/Hexa.NET.ImGui/actions/workflows/cmake-backends.yml/badge.svg)](https://github.com/HexaEngine/Hexa.NET.ImGui/actions/workflows/cmake-backends.yml)
 [![Publish NuGet Packages](https://github.com/HexaEngine/Hexa.NET.ImGui/actions/workflows/push-nuget.yml/badge.svg)](https://github.com/HexaEngine/Hexa.NET.ImGui/actions/workflows/push-nuget.yml)
